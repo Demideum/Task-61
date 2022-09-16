@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 
-public class PlayerController : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private float _speed;
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
             transform.Translate(_speed * Time.deltaTime, 0, 0);
             _animator.SetTrigger(_run);
         }
-        else if  (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(_speed * Time.deltaTime * -1, 0, 0);
             _animator.SetTrigger(_run);

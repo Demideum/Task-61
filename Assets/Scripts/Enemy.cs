@@ -7,13 +7,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform _pathEnemy;
     [SerializeField] private float _speedEnemy;
 
-
     private Transform[] _points;
     private int _currentPoint;
+    private int _swivelAngle = -180;
 
     private void Start()
     {
-
         _points = new Transform[_pathEnemy.childCount];
 
         for (int i = 0; i < _pathEnemy.childCount; i++)
@@ -30,7 +29,7 @@ public class Enemy : MonoBehaviour
 
         if (transform.position == target.position)
         {
-            transform.eulerAngles = new Vector3(0, -180, 0);
+            transform.eulerAngles = new Vector3(0, _swivelAngle, 0);
             _currentPoint++;
 
             if (_currentPoint >= _points.Length)

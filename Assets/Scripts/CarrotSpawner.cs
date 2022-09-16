@@ -10,7 +10,7 @@ public class CarrotSpawner : MonoBehaviour
     [SerializeField] private float _delaySpawnCarrots;
 
     private Transform[] _points;
-    private int _currrentPoint;
+    private int _currentPoint;
     private int _currentCountCarrots;
 
     private void Start()
@@ -31,13 +31,13 @@ public class CarrotSpawner : MonoBehaviour
 
         while (_countCarrot > _currentCountCarrots)
         {
-            Instantiate(_carrotPrefab, _points[_currrentPoint].position, Quaternion.identity);
+            Instantiate(_carrotPrefab, _points[_currentPoint].position, Quaternion.identity);
             _currentCountCarrots++;
-            _currrentPoint++;
+            _currentPoint++;
 
-            if (_currrentPoint >= _points.Length)
+            if (_currentPoint >= _points.Length)
             {
-                _currrentPoint = 0;
+                _currentPoint = 0;
             }
 
             yield return waitSeconds;
